@@ -6,7 +6,10 @@ let total = 0;
 
 while ( userInput !== null) {
 	userInput = prompt('Введіть число');
-	if ( !parseInt(userInput) ) {
+
+	if (userInput === null) {
+		break;
+	} else if ( !parseInt(userInput) ) {
 		alert('Ви ввели не число');
 	} else {
 		number.push(userInput);
