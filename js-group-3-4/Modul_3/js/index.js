@@ -20,10 +20,9 @@ const checkLoginValidity = function () {
 	const inputLength = userInput.length;
 
 	if (inputLength >= min && inputLength <= max ) {
-		return;
+		return true;
 	} else {
 		alert(`Логін повинен бути від ${min} до ${max}`);
-		return;
 	}
 	return false;
 };
@@ -33,11 +32,10 @@ const addLogin = function () {
 	if (userInput === null) {
 		return;
 	}
+	const loginValidity = checkLoginValidity();
+	const loginExists = checkInLoginExists();
 
-const loginValidity = checkLoginValidity();
-const loginExists = checkInLoginExists();
-	
-	if ( loginExists === false ) {
+	if ( loginExists === false && loginValidity !== false) {
 		logins.push(userInput);
 		alert(`Логін успішно добавлено`);
 	}
