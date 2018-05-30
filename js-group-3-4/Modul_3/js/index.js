@@ -35,10 +35,16 @@ const addLogin = function () {
 	const loginValidity = checkLoginValidity();
 	const loginExists = checkInLoginExists();
 
-	if ( loginExists === false && loginValidity !== false) {
-		logins.push(userInput);
-		alert(`Логін успішно добавлено`);
+	if ( loginExists !== false ) {
+		return;
 	}
+	if ( loginValidity === false ) {
+		return;
+	}
+	
+	logins.push(userInput);
+	alert(`Логін успішно добавлено`);
+	
 	console.log(logins);
 
 };
