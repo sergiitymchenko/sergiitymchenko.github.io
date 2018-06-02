@@ -3,42 +3,39 @@
 const logins = ["Mango", "robotGoogles", "Poly", "Aj4x1sBozz", "qwerty123"];
 const userInput = prompt(`Введіть логін`);
 
-const checkInLoginExists = function () {
+const checkInLoginExists = function (userInput) {
 
 	for (let item of logins) {
 		if ( userInput === item ) {
 			alert(`Такий логін вже використовується`);
-			return;
+			return true;
 		}
 	}
 	return false;
 };
 
-const checkLoginValidity = function () {
+const checkLoginValidity = function (userInput) {
 	const min = 4;
 	const max = 16;
 	const inputLength = userInput.length;
 
 	if (inputLength >= min && inputLength <= max ) {
 		return true;
-	} else {
-		alert(`Логін повинен бути від ${min} до ${max}`);
 	}
+	alert(`Логін повинен бути від ${min} до ${max}`);
 	return false;
 };
 
-const addLogin = function () {
+
+const addLogin = function (userInput) {
 
 	if (userInput === null) {
 		return;
 	}
-	const loginValidity = checkLoginValidity();
-	const loginExists = checkInLoginExists();
+	const loginValidity = checkLoginValidity(userInput);
+	const loginExists = checkInLoginExists(userInput);
 
-	if ( loginExists !== false ) {
-		return;
-	}
-	if ( loginValidity === false ) {
+	if ( loginExists || !loginValidity ) {
 		return;
 	}
 	
@@ -46,7 +43,6 @@ const addLogin = function () {
 	alert(`Логін успішно добавлено`);
 	
 	console.log(logins);
-
 };
 
-addLogin();
+addLogin(userInput);
