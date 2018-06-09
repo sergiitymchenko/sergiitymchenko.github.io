@@ -30,8 +30,7 @@ function Cashier(name, products) {
 		const ordersList = Object.keys(order);
 		for (const product of ordersList) {
 			if (!productsList.includes(product)) {
-				alert(`Товара с именем ${product} нет`);
-				return null;
+				alert(`Товару з іменем ${product} не має`);
 			} else {
 				this.totalPrice += order[product] * products[product];
 			}
@@ -46,16 +45,15 @@ function Cashier(name, products) {
 				return null;
 			}
 
-			if (this.customerMoney === '') {
-				alert(`Ви нічого не ввели`);
-			}
-
 			if ( Number.isNaN(Number(this.customerMoney)) ) {
 				alert(`Ви ввели не число`);
 			}
 
-			if (Number(this.customerMoney) < this.totalPrice) {
+			if (this.customerMoney === '') {
+				alert(`Ви нічого не ввели`);
+			} else if (Number(this.customerMoney) < this.totalPrice) {
 				alert(`Ви ввели меньшу сумму`);
+				alert(`До сплати ${this.totalPrice}`);
 			}
 
 			if (Number(this.customerMoney) >= this.totalPrice) {
@@ -89,7 +87,11 @@ function Cashier(name, products) {
 		}
 
 		this.countChange();
-		alert(`Дякуємо за покупку, приходьте ще. Ваша решта ${this.changeAmount}`);
+		if (this.customerMoney === this.totalPrice) {
+			alert(`Дякуємо за покупку, приходьте ще`);
+		} else {
+			alert(`Дякуємо за покупку, приходьте ще. Ваша решта ${this.changeAmount}`);
+		}
 		this.reset();
 	};
 };
