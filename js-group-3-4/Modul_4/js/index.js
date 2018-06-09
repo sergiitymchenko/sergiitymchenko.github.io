@@ -52,8 +52,7 @@ function Cashier(name, products) {
 			if (this.customerMoney === '') {
 				alert(`Ви нічого не ввели`);
 			} else if (Number(this.customerMoney) < this.totalPrice) {
-				alert(`Ви ввели меньшу сумму`);
-				alert(`До сплати ${this.totalPrice}`);
+				alert(`Ви ввели меньшу сумму. До сплати ${this.totalPrice}`);
 			}
 
 			if (Number(this.customerMoney) >= this.totalPrice) {
