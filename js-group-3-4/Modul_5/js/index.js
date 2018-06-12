@@ -54,66 +54,85 @@ function SocialBook ( users = [], posts = {} ) {
 	this.getUserPosts = userId => this.posts[userId];
 
 	this.addPost = (userId, post) => {
-		
+		this.posts[userId].push(post);
+		return this.posts[userId];
 	};
 
-	this.removePost = (userId, postId) => {
-		
-	};
+	this.removePost = (userId, postId) => this.posts[userId].filter( user => user.id !== postId );
 
-	this.getAllLike = userId => this.posts[userId].reduce( (acc, val) => acc + val.likes, 0 );
+	this.getAllLike = userId => this.posts[userId].reduce( (acc, val) => acc + val.likes,0 );
 
-	this.addPostLike = (userId, postId) => {
-		
-	};
+	this.addPostLike = (userId, postId) => this.posts[userId].find( post => post.id === postId ).likes + 1;
 
 	this.getPostsCount = userId => this.posts[userId].length;
 };
+
+const nextPost = {
+	id: getId(),
+	text: 'post#3',
+	likes: 12
+};
+
 const social = new SocialBook(initialUsers, initialPosts);
+
 console.log(
-	'Повертає масив всіх користувачів: ', social.getAllUsers()
+	'Повертає масив всіх користувачів: ',
+	 social.getAllUsers()
 	);
 console.log(
-	'Шукає та повертає обєкт користувача з співпадаючим логіном:', social.getUserByLogin("mangozedog@mail.com")
+	'Шукає та повертає обєкт користувача з співпадаючим логіном:',
+	 social.getUserByLogin("mangozedog@mail.com")
 	);
 console.log(
-	'Шукає користувача по id та повертає поле isActive:', social.isUserActive("-e51cpd4di")
+	'Шукає користувача по id та повертає поле isActive:',
+	 social.isUserActive("-e51cpd4di")
 	);
 console.log(
-	'Повертає масив тих користувачів значеня поля isActive true:', social.getActiveUsers()
+	'Повертає масив тих користувачів значеня поля isActive true:',
+	 social.getActiveUsers()
 	);
 console.log(
-	'Обновляє обєкт користувача з id рівним userId:', social.updateUserById()
+	'Обновляє обєкт користувача з id рівним userId:',
+	 social.updateUserById()
 	);
 console.log(
-	'Приймає обєкт  user з полями email та isActive і добавляє користувача в users:', social.addUser({
+	'Приймає обєкт  user з полями email та isActive і добавляє користувача в users:',
+	 social.addUser({
 		login: "tymchenko@gmail.com",
 		pasword: "123qweqwe"
 	}));
 console.log(
-	'Видаляє користувача з users по полю id:', social.removeUserById("-s19a6hqce")
+	'Видаляє користувача з users по полю id:',
+	 social.removeUserById("-s19a6hqce")
 	);
 
 console.log(
-	'Повертає загальну кількість користувачів:', social.getUsersCount("-e51cpd4di")
+	'Повертає загальну кількість користувачів:',
+	 social.getUsersCount("-e51cpd4di")
 	);
 console.log(
-	'Повертає масив постів користувача:', social.getUserPosts("-s19a6hqce")
+	'Повертає масив постів користувача:',
+	 social.getUserPosts("-s19a6hqce")
 	);
 console.log(
-	'Добавляє post в поле posts обєкта socialbook по ключу userId:', social.addPost()
+	'Добавляє post в поле posts обєкта socialbook по ключу userId:',
+	 social.addPost("-qkpzenjxe", nextPost)
 	);
 console.log(
-	'Видаляє post з id рівним postId з поля posts обєкта socialbook по ключу userId:', social.removePost()
+	'Видаляє post з id рівним postId з поля posts обєкта socialbook по ключу userId:',
+	 social.removePost("-e51cpd4di", "-9y6nkmlj4")
 	);
 console.log(
-	'Повертає суму всіх полів likes:', social.getAllLike("-s19a6hqce")
+	'Повертає суму всіх полів likes:',
+	 social.getAllLike("-s19a6hqce")
 	);
 console.log(
-	'Збільшує значення поля likes на 1 в поста з id рівним postId, для користувача з id рівним userId:', social.addPostLike("-s19a6hqce")
+	'Збільшує значення поля likes на 1 в поста з id рівним postId, для користувача з id рівним userId:',
+	 social.addPostLike("-qkpzenjxe",)
 	);
 console.log(
-	'Повертає загальну кількість постів користувача:', social.getPostsCount("-s19a6hqce")
+	'Повертає загальну кількість постів користувача:',
+	 social.getPostsCount("-e51cpd4di", "-9y6nkmlj4")
 	);
 
 
