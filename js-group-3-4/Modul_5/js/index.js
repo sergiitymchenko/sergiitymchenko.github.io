@@ -53,15 +53,21 @@ function SocialBook ( users = [], posts = {} ) {
 
 	this.getUserPosts = userId => this.posts[userId];
 
-	// this.addPost = (userId, post) => ;
+	this.addPost = (userId, post) => {
+		
+	};
 
-	// this.removePost = (userId, postId) =>;
+	this.removePost = (userId, postId) => {
+		
+	};
 
-	// this.getAllLike = (userId) => ;
+	this.getAllLike = userId => this.posts[userId].reduce( (acc, val) => acc + val.likes, 0 );
 
-	// this.addPostLike = (userId, postId) =>;
+	this.addPostLike = (userId, postId) => {
+		
+	};
 
-	// this.getPostsCount = (userId) => ;
+	this.getPostsCount = userId => this.posts[userId].length;
 };
 const social = new SocialBook(initialUsers, initialPosts);
 console.log(
@@ -92,7 +98,22 @@ console.log(
 	'Повертає загальну кількість користувачів:', social.getUsersCount("-e51cpd4di")
 	);
 console.log(
-	social.getUserPosts("-s19a6hqce")
+	'Повертає масив постів користувача:', social.getUserPosts("-s19a6hqce")
+	);
+console.log(
+	'Добавляє post в поле posts обєкта socialbook по ключу userId:', social.addPost()
+	);
+console.log(
+	'Видаляє post з id рівним postId з поля posts обєкта socialbook по ключу userId:', social.removePost()
+	);
+console.log(
+	'Повертає суму всіх полів likes:', social.getAllLike("-s19a6hqce")
+	);
+console.log(
+	'Збільшує значення поля likes на 1 в поста з id рівним postId, для користувача з id рівним userId:', social.addPostLike("-s19a6hqce")
+	);
+console.log(
+	'Повертає загальну кількість постів користувача:', social.getPostsCount("-s19a6hqce")
 	);
 
 
