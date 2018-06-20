@@ -71,15 +71,10 @@ function SocialBook ( users = [], posts = {} ) {
 	this.getAllLike = userId => this.posts[userId].reduce( (acc, val) => acc + val.likes,0 );
 
 	this.addPostLike = (userId, postId) => {
-		const addLikes = this.posts[userId].find( post => post.id === postId ).likes + 1;
-		return addLikes;
-	}
-
-	// this.addPostLike = (userId, postId) => {
-	// 	const post = this.posts[userId].map(post => post.id === postId ? {...post,likes:post.likes+1} : post);
-	// 	this.posts[userId] = [...post];
-	// 	return this.posts[userId].find(post => post.id === postId).likes;
-	// };
+		const post = this.posts[userId].map(post => post.id === postId ? {...post,likes:post.likes+1} : post);
+		this.posts[userId] = [...post];
+		return this.posts[userId].find(post => post.id === postId).likes;
+	};
 
 	this.getPostsCount = userId => this.posts[userId].length;
 };
