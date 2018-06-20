@@ -47,7 +47,11 @@ function SocialBook ( users = [], posts = {} ) {
 		return this.users.push(user);
 	};
 
-	this.removeUserById = userId => this.users.filter( user => user.id !== userId );
+	this.removeUserById = userId => {
+		const remove = this.users.filter( user => user.id !== userId );
+		this.users = remove;
+		return remove;
+	};
 
 	this.getUsersCount = () => this.users.length;
 
@@ -58,11 +62,24 @@ function SocialBook ( users = [], posts = {} ) {
 		return this.posts[userId];
 	};
 
-	this.removePost = (userId, postId) => this.posts[userId].filter( user => user.id !== postId );
+	this.removePost = (userId, postId) => {
+		const remove = this.posts[userId].filter( user => user.id !== postId );
+		this.posts[userId] = remove;
+		return remove;
+	};
 
 	this.getAllLike = userId => this.posts[userId].reduce( (acc, val) => acc + val.likes,0 );
 
-	this.addPostLike = (userId, postId) => this.posts[userId].find( post => post.id === postId ).likes + 1;
+	this.addPostLike = (userId, postId) => {
+		const addLikes = this.posts[userId].find( post => post.id === postId ).likes + 1;
+		return addLikes;
+	}
+
+	// this.addPostLike = (userId, postId) => {
+	// 	const post = this.posts[userId].map(post => post.id === postId ? {...post,likes:post.likes+1} : post);
+	// 	this.posts[userId] = [...post];
+	// 	return this.posts[userId].find(post => post.id === postId).likes;
+	// };
 
 	this.getPostsCount = userId => this.posts[userId].length;
 };
@@ -128,7 +145,7 @@ console.log(
 	);
 console.log(
 	'Збільшує значення поля likes на 1 в поста з id рівним postId, для користувача з id рівним userId:',
-	 social.addPostLike("-qkpzenjxe",)
+	 social.addPostLike("-qkpzenjxe","-5tu69g5rf")
 	);
 console.log(
 	'Повертає загальну кількість постів користувача:',
