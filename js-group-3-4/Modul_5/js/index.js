@@ -143,6 +143,10 @@ console.log(
 	 social.addPostLike("-qkpzenjxe","-5tu69g5rf")
 	);
 console.log(
+	'Збільшує значення поля likes на 1 в поста з id рівним postId, для користувача з id рівним userId:',
+	 social.addPostLike("-qkpzenjxe","-5tu69g5rf")
+	);
+console.log(
 	'Повертає загальну кількість постів користувача:',
 	 social.getPostsCount("-e51cpd4di", "-9y6nkmlj4")
 	);
