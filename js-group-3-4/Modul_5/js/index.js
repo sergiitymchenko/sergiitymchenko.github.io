@@ -71,15 +71,10 @@ function SocialBook ( users = [], posts = {} ) {
 	this.getAllLike = userId => this.posts[userId].reduce( (acc, val) => acc + val.likes,0 );
 
 	this.addPostLike = (userId, postId) => {
-		const addLikes = this.posts[userId].find( post => post.id === postId ).likes + 1;
-		return addLikes;
-	}
-
-	// this.addPostLike = (userId, postId) => {
-	// 	const post = this.posts[userId].map(post => post.id === postId ? {...post,likes:post.likes+1} : post);
-	// 	this.posts[userId] = [...post];
-	// 	return this.posts[userId].find(post => post.id === postId).likes;
-	// };
+		const post = this.posts[userId].map(post => post.id === postId ? {...post,likes:post.likes+1} : post);
+		this.posts[userId] = [...post];
+		return this.posts[userId].find(post => post.id === postId).likes;
+	};
 
 	this.getPostsCount = userId => this.posts[userId].length;
 };
@@ -142,6 +137,10 @@ console.log(
 console.log(
 	'Повертає суму всіх полів likes:',
 	 social.getAllLike("-s19a6hqce")
+	);
+console.log(
+	'Збільшує значення поля likes на 1 в поста з id рівним postId, для користувача з id рівним userId:',
+	 social.addPostLike("-qkpzenjxe","-5tu69g5rf")
 	);
 console.log(
 	'Збільшує значення поля likes на 1 в поста з id рівним postId, для користувача з id рівним userId:',
