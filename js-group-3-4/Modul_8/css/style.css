@@ -1,0 +1,41 @@
+body {
+	background-color: #ccc;
+}
+
+.fullview {
+	display: flex;
+	justify-content: center;
+}
+
+.fullview img {
+	padding: 8px;
+	background-color: #48D1CC;
+}
+
+.preview {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	padding: 0;
+}
+
+.preview li {
+	list-style-type: none;
+	background-color: #1E90FF;
+	border: 1px solid #7CFC00;
+	padding: 8px;
+	margin: 1px;
+}
+
+.preview li img {
+	width: 200px;
+	height: 130px;
+	cursor: pointer;
+	overflow: hidden;
+}
+.push:hover {
+	transition: .5s ease-in-out;
+	transform: scale(1.1, 1.1);
+	border: 2px solid #0000CD;
+	box-shadow: 0 0 3px 3px;
+}
