@@ -33,7 +33,6 @@ class Timer {
 
 			this.onTick({min, sec, ms});
 		}, 100);
-		resetBtn.disabled = true;
 	}
 	lap() {
 		let clockFaceOutText = clockFace.innerHTML;
@@ -43,7 +42,6 @@ class Timer {
 		clearInterval(this.timerId);
 		this.timerId = null;
 		this.isActive = false;
-		resetBtn.disabled = false;
 	}
 	reset() {
 		this.stop();
