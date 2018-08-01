@@ -36,12 +36,8 @@ body {
 }
 
 .laps {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
 	list-style-type: none;
-	font-size: 8vh;
+	font-size: 5vh;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;

@@ -33,6 +33,7 @@ class Timer {
 
 			this.onTick({min, sec, ms});
 		}, 100);
+		resetBtn.disabled = true;
 	}
 	lap() {
 		let clockFaceOutText = clockFace.innerHTML;
@@ -42,6 +43,7 @@ class Timer {
 		clearInterval(this.timerId);
 		this.timerId = null;
 		this.isActive = false;
+		resetBtn.disabled = false;
 	}
 	reset() {
 		this.stop();
@@ -56,16 +58,12 @@ const timer = new Timer({
 
 startBtn.addEventListener('click', ()=> {
 	if (!timer.isActive) {
-		lapBtn.disabled = true;
-		resetBtn.disabled = true;
 		timer.start();
 		startBtn.textContent = 'pause';
 		return;
 	}
 	timer.stop();
 	startBtn.textContent = 'continue';
-	lapBtn.disabled = false;
-	resetBtn.disabled = false;
 });
 
 resetBtn.addEventListener('click', ()=> {
