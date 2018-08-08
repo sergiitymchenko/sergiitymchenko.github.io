@@ -9,6 +9,10 @@ const nameInput = document.querySelector('.name-input');
 const ageInput = document.querySelector('.age-input');
 const delForm = document.querySelector('.js-del-id');
 const delInput = document.querySelector('.del-input');
+const putForm = document.querySelector('.js-put-id');
+const newNameInput = document.querySelector('.new-name-input');
+const newAgeInput = document.querySelector('.new-age-input');
+const idInput = document.querySelector('.id-input');
 
 const apiUrl = 'https://test-users-api.herokuapp.com/users/';
 
@@ -131,21 +135,12 @@ const removeUser = id => {
 	.catch(error => console.log(error))
 };
 const deleteRowTable = item => {
-	// console.log(item);
-	// const deleteRowTable = `
-	// <tr>
-	// 	<td class="td">${item.data._id}</td>
-	// 	<td class="th">${item.data.name}</td>
-	// 	<td class="th">${item.data.age}</td>
-	// </tr>
-	// `
-	// deleteRowTable.remove();
+	alert('succes');
 };
 
 const handleDeleteSubmit = e => {
 	e.preventDefault();
 	removeUser(delInput.value).then(deleteRowTable);
-	alert(`Видалено ${delInput.value}`);
 	e.target.reset();
 };
 
@@ -153,11 +148,6 @@ delForm.addEventListener('submit', handleDeleteSubmit);
 /*=======================end method DELETE======================*/
 
 /*=======================method PUT=============================*/
-const putForm = document.querySelector('.js-put-id');
-const newNameInput = document.querySelector('.new-name-input');
-const newAgeInput = document.querySelector('.new-age-input');
-const idInput = document.querySelector('.id-input');
-
 const updateUser = id => {
 	return fetch(`${apiUrl}${id}`, {
 		method: 'PUT',
@@ -178,9 +168,16 @@ const updateUser = id => {
 	.catch(error => console.log(error))
 };
 
+const alertUser = data => {
+	const user = data.data;
+	const outUser = JSON.stringify(user);
+	console.log(user);
+	alert(`Дані користувача ${user.name} змінено ${outUser}`);
+}
+
 const handleUpdateSubmite = e => {
 	e.preventDefault();
-	updateUser(idInput.value).then(data => console.log(data));
+	updateUser(idInput.value).then(alertUser);
 	e.target.reset();
 };
 
