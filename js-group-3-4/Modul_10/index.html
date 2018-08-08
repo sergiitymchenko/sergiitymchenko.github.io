@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+	<meta charset="UTF-8">
+	<title>DZ_10</title>
+	<meta name="description" content="">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	
+	<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+	<!-- Написать приложение для работы с REST сервисом, 
+	все функции делают запрос и возвращают Promise 
+	с которым потом можно работать. 
+
+	Реализовать следующий функционал:
+	- функция getAllUsers() - должна вернуть текущий список всех пользователей в БД.
+
+	- функция getUserById(id) - должна вернуть пользователя с переданным id.
+
+	- функция addUser(name, age) - должна записывать в БД юзера с полями name и age.
+
+	- функция removeUser(id) - должна удалять из БД юзера по указанному id.
+
+	- функция updateUser(id, user) - должна обновлять данные пользователя по id. 
+	user это объект с новыми полями name и age.
+	Документацию по бэкенду и пример использования прочитайте 
+	в документации https://github.com/trostinsky/users-api#users-api.
+	Сделать минимальный графический интерфейс в виде панели с полями и кнопками. 
+	А так же панелью для вывода результатов операций с бэкендом. -->
+	<div class="main">
+		<div class="container">
+			<form class="get-form js-get-form">
+				<button class="mdc-btn" type="submit">get</button>
+			</form>
+
+			<div class="get-result">
+				<table class="table js-get-table">
+					<tr>
+						<th class="th">ID</th>
+						<th class="th">NAME</th>
+						<th class="th">AGE</th>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="container">
+			<form class="search-form js-get-id">
+				<input type="text" name="country" placeholder="Enter user id" class="get-input">
+				<button class="mdc-btn" type="submit">search</button>
+			</form>
+			<div class="id-result js-get-result"></div>
+
+			<form class="search-form js-post-id">
+				<input type="text" name="country" placeholder="Enter user name" class="name-input">
+				<input type="text" name="country" placeholder="Enter user age" class="age-input">
+				<button class="mdc-btn" type="submit">add</button>
+			</form>
+
+			<form class="search-form js-del-id">
+				<input type="text" name="country" placeholder="Enter user id" class="del-input">
+				<button class="mdc-btn" type="submit">delete</button>
+			</form>
+
+			<form class="form js-put-id">
+				<input type="text" name="country" placeholder="Enter new user name" class="new-name-input">
+				<input type="text" name="country" placeholder="Enter new user age" class="new-age-input">
+				<input type="text" name="country" placeholder="Enter user id" class="id-input">
+				<button class="mdc-btn" type="submit">update</button>
+			</form>
+		</div>
+	</div>
+	
+
+<script src="js/index.js"></script>
+</body>
+</html>
