@@ -139,7 +139,7 @@ function handleForSubmit(e) {
   // containerCards.insertAdjacentHTML('afterbegin', markup);
   containerCards.innerHTML = markup;
 
-  form.reset();
+  // form.reset();
 }
 
 function handleForReset() {
