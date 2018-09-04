@@ -1,9 +1,13 @@
-// export const set = value => {
-// 	localStorage.setItem('name-address', JSON.stringify(value));
-// };
+export const setUrl = value => {
+	localStorage.setItem('name-address', JSON.stringify(value));
+};
 
-// export const get = () => {
-// 	const data = localStorage.getItem('name-address');
+export const getUrl = () => {
+	const data = localStorage.getItem('name-address');
 
-// 	return data ? JSON.parse(data) : null;
-// };
+	return data ? JSON.parse(data) : null;
+};
+
+export const removeUrl = () => {
+	localStorage.removeItem('name-address');
+};
