@@ -12,7 +12,7 @@ const API_KEY = '5b8e43105ece6fba951fde2b9ba4ab490dfde8c487f55';
 // };
 
 
-const fetchCard= (input) => {
+export const fetchCard= (input) => {
 
 	const url = `http://api.linkpreview.net/?key=${API_KEY}&q=${input}`;
 
@@ -21,6 +21,6 @@ const fetchCard= (input) => {
 		if (response.ok) return response.json();
 		throw new Error('error: ' + response.statusText);
 	})
-	.then(data => data.hits)
+	.then(data => data)
 	.catch(error => console.log(error))
 };
