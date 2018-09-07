@@ -52,21 +52,24 @@ function handleFormSubmit(e) {
 	e.target.reset();
 };
 
+let nextImg;
 function handleChangeImage({target}) {
 	const change = target.src;
+	nextImg = target.parentNode;
 	backdrop.classList.add('open-backdrop');
 	if (target.nodeName !== 'IMG') return;
 	imgModal.setAttribute('src', change);
+	return nextImg;
 };
 
 function handleLeftImage() {
-	// const leftElement = 
-	// imgModal.setAttribute('src', leftElement);
+	let leftElement = nextImg.previousElementSibling.firstElementChild.src;
+	imgModal.setAttribute('src', leftElement);
 };
 
 function handleRightImage() {
-	// const rightElement = 
-	// imgModal.setAttribute('src', rightElement);
+	const rightElement = nextImg.nextElementSibling.firstElementChild.src
+	imgModal.setAttribute('src', rightElement);
 };
 
 function handleSelectImage() {
@@ -102,9 +105,7 @@ onload = () => {
 		fetchedPhotos.map(elem => {
 			grid.insertAdjacentHTML(
 				'beforeend',
-				`<div class="grid-items">
-				<img src="${elem.webformatURL}" alt="photo" class="grid-item">
-				</div>`);
+				gridItemTpl(elem));
 		});
 	};
 };
