@@ -38,6 +38,12 @@ function handleClick(e) {
 		return;
 	}
 
+	const regexForm = /^(https?:\/\/)([\da-z\.-]+)\.([a-z\.]{2,6})?\/([a-z]{1,10})?\/?/gi;
+
+	if (!regexForm.test(form.value)) {
+		alert('Введено не правильний url-address, потрібно ввести https//:exemple.com або https//:www.exemple.com');
+		return;
+	}
 	handleView();
 
 	fetchUrlAddress.push(form.value);
