@@ -14,6 +14,7 @@ const fetchUrlAddress = persistedUrlAddress ? persistedUrlAddress : [];
 btnAddUrl.addEventListener('click', handleClick);
 gridCard.addEventListener('click', deleteBtn);
 
+
 function handleView() {
 	fetchCard(form.value)
 	.then(data => {
@@ -38,16 +39,22 @@ function handleClick(e) {
 		return;
 	}
 
-	const regexForm = /^(https?:\/\/)([\da-z\.-]+)\.([a-z\.]{2,6})?\/([a-z]{1,10})?\/?/gi;
+	const regexInput = /^(https?:\/\/)([\da-z\.-]+)\.([a-z\.]{2,6})?\/([a-z]{1,10})?\/?/gi;
 
-	if (!regexForm.test(form.value)) {
+	if (!regexInput.test(form.value)) {
 		alert('Введено не правильний url-address, потрібно ввести https//:exemple.com або https//:www.exemple.com');
 		return;
 	}
-	handleView();
 
-	fetchUrlAddress.push(form.value);
-	storage.setUrl(fetchUrlAddress);
+	if (!fetchUrlAddress.includes(form.value)) {
+		fetchUrlAddress.push(form.value);
+		storage.setUrl(fetchUrlAddress);
+	} else {
+		alert('Такий url-address вже записано');
+		return;
+	}
+
+	handleView();
 
 	form.value = '';
 };
@@ -55,9 +62,16 @@ function handleClick(e) {
 function deleteBtn({target}) {
 	if (target.nodeName !== 'BUTTON') return;
 	target.parentNode.remove();
+	// const elemSrc = target.parentNode.firstElementChild.firstElementChild.href;
+	// const index = fetchUrlAddress.indexOf(elemSrc);
+	// if (index !== -1) {
+	// 	fetchUrlAddress.splice(index, 1);
+	// }
+	// return fetchUrlAddress;
 };
 
 onload = () => {
+	// alert('Кількість запитів обмежена');
 	if (fetchUrlAddress !== []) {
 		fetchUrlAddress.map(elem => {
 			fetchCard(elem).then(data => {
