@@ -71,7 +71,7 @@ function deleteBtn({target}) {
 };
 
 onload = () => {
-	// alert('Кількість запитів обмежена');
+	alert('Кількість запитів обмежена');
 	if (fetchUrlAddress !== []) {
 		fetchUrlAddress.map(elem => {
 			fetchCard(elem).then(data => {
