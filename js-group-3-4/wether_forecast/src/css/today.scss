@@ -1,0 +1,115 @@
+$colorGrey: #CCCCCC;
+$colorHex: rgb(34, 34, 34);
+$colorBlack: rgb(0, 0, 0);
+$colorBlue: #00BFFF;
+$colorLiteBlue: #48D1CC;
+$colorDarkGray: #2F4F4F;
+$colorCyan: cyan;
+
+.today-weather {
+	margin: 5px;
+}
+.today-block {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.today-region {
+	font-family:"Open Sans Condensed" ;
+	font-size: 27px;
+	font-weight: bold;
+	color: $colorBlue;
+	margin: 10px 0 0 0;
+	padding-left: 15px;
+}
+.today-update {
+	font-family: "Open Sans Condensed";
+	font-size: 15px;
+	color: $colorDarkGray;
+	background-color: $colorLiteBlue;
+	border-radius: 25px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 10px;
+	margin: 10px;
+}
+.today-wrapper {
+	display: flex;
+	justify-content: center;
+	margin: 10px;
+}
+.today-now, .week {
+	text-align: center;
+	font-size: 40px;
+	font-family: "Open Sans Condensed";
+	margin: 0;
+	padding: 10px 0;
+	background-color: $colorCyan;
+	width: 30rem;
+	border-radius: 50px;
+}
+.today {
+	margin: 0 auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	box-shadow: 0 0 1px 1px $colorHex;
+	width: 65%;
+	min-height: 19rem;
+}
+.today-date, .today-icon {
+	min-width: 15rem;
+	border: 1px solid $colorGrey;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-family: "Marmelad";
+}
+.today-icon {
+	border-top: none;
+	border-bottom: none;
+	border-radius: 15px;
+	font-size: 20px;
+	color: $colorHex;
+	.today-img {
+		width: 150px;
+		height: 150px;
+	}
+}
+.today-date {
+	border: none;
+	.today-day, .today-month {
+		font-size: 30px;
+		color: $colorHex;
+	}
+	.today-number {
+		color: $colorHex;
+		font-size: 35px;
+		margin: 5px 0;
+	}
+}
+.today-info {
+	min-width: 15rem;
+	border: 1px solid $colorGrey;
+	border: none;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding-left: 25px;
+	font-family: "Marmelad";
+	font-size: 16px;
+	.temp, .feels, .humidity, .wind, .cloud, .vis, .precip {
+		margin: 5px 0;
+		color: $colorHex;
+		.temp-span, .feels-span, .humidity-span, .wind-span, .cloud-span, .vis-span, .precip-span {
+			font-size: 25px;
+			padding-left: 10px;
+			color: $colorBlack;
+		}
+	}
+}

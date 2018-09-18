@@ -1,0 +1,48 @@
+.main-block {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+.weekday {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 165px;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	box-shadow: 0 0 1px 1px #222;
+	margin: 0 2px;
+}
+
+.day, .month, .day-number, .text{
+	text-align: center;
+	color: #2F4F4F;
+	font-family: "Istok Web";
+	margin: 10px 0;
+}
+.day {
+	text-transform: capitalize;
+}
+
+.day-number {
+	margin: 0;
+	font-size: 25px;
+}
+.img-weather {
+	margin: auto;
+	width: 100px;
+	height: 100px;
+}
+.min-temp, .max-temp, .sunrise, .sunset, .text {
+	padding-left: 10px;
+	font-family: "Istok Web";
+	font-size: 14px;
+	color: #2F4F4F;
+}
+.max-temp, .sunset {
+	margin: 0;
+}
+.text {
+	padding: 0;	
+	margin-bottom: 0;
+}
