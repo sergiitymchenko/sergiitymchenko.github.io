@@ -8,7 +8,10 @@ export const fetchForecast = (input) => {
 	return axios
 		.get(url)
 		.then(res => res.data)
-		.catch(error => console.log(error))
+		.catch(error => {
+			if (400) alert('Введено неправильну назву міста');
+			console.log(error);
+		})
 };
 
 
