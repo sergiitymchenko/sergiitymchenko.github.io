@@ -20,12 +20,12 @@ function handleView() {
 		month: 'long',
 	}
 	const date = new Date();
+	const weeks = ["неділя", "понеділок", "вівторок", "середа", "четвер", "п'ятниця", "субота", "неділя", "понеділок", "вівторок", "середа", "четвер", "п'ятниця", "субота"];
 
-	const weeks = ["неділя", "понеділок", "вівторок", "середа", "четвер", "п'ятниця", "субота"];
 
 	fetchForecast(input.value)
 	.then(data => {
-
+		// console.log(data);
 		mainContent.innerHTML = gridTpl({
 			city: data.location.name,
 			region: data.location.region,
