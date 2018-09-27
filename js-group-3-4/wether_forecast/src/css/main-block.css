@@ -2,16 +2,17 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
+	flex-wrap: wrap;
 }
 .weekday {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	width: 165px;
+	width: 10rem;
 	border: 1px solid #ccc;
 	border-radius: 8px;
 	box-shadow: 0 0 1px 1px #222;
-	margin: 0 2px;
+	margin: 2px;
 }
 
 .day, .month, .day-number, .text{

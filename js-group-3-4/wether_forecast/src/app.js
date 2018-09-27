@@ -31,6 +31,7 @@ function handleView() {
 			region: data.location.region,
 
 			update: data.current.last_updated.slice(10),
+			
 			imgCurrent: data.current.condition.icon,
 			textCurrent: data.current.condition.text,
 			tempCurrent: data.current.temp_c,

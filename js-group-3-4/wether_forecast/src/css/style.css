@@ -24,10 +24,13 @@
 	margin-top: 25px;
 	display: flex;
 	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
 }
 
 .logo {
-	width: 40%;
+	width: 30rem;
+	height: 6rem;
 	text-transform: uppercase;
 	text-align: center;
 	font-family: "Oswald";
@@ -38,12 +41,14 @@
 }
 
 .form {
-	width: 60%;
+	width: 40rem;
+	height: 6rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	border: 1px solid #00BFFF;
 	border-radius: 8px;
+	padding: 5px;
 }
 
 .form-input {
