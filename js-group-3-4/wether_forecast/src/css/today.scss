@@ -46,7 +46,7 @@ $colorCyan: cyan;
 	margin: 0;
 	padding: 10px 0;
 	background-color: $colorCyan;
-	width: 30rem;
+	width: 45%;
 	border-radius: 50px;
 }
 .today {
@@ -59,19 +59,20 @@ $colorCyan: cyan;
 	border: 1px solid #ccc;
 	border-radius: 8px;
 	box-shadow: 0 0 1px 1px $colorHex;
-	width: 65%;
-	min-height: 19rem;
+	width: 100%;
+	height: 20%;
 }
 .today-date, .today-icon {
-	min-width: 15rem;
-	border: 1px solid $colorGrey;
+	min-width: 25%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	font-family: "Marmelad";
+	margin: 10px;
 }
 .today-icon {
+	border: 1px solid $colorGrey;
 	border-top: none;
 	border-bottom: none;
 	border-radius: 15px;
@@ -83,7 +84,9 @@ $colorCyan: cyan;
 	}
 }
 .today-date {
-	border: none;
+	border-top: none;
+	border-bottom: none;
+	border-radius: 15px;
 	.today-day, .today-month {
 		font-size: 30px;
 		color: $colorHex;
@@ -95,15 +98,16 @@ $colorCyan: cyan;
 	}
 }
 .today-info {
-	min-width: 15rem;
-	border: 1px solid $colorGrey;
+	min-width: 25%;
 	border: none;
+	border-radius: 15px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	padding-left: 25px;
+	padding-left: 50px;
 	font-family: "Marmelad";
-	font-size: 16px;
+	font-size: 20px;
+	margin: 10px;
 	.temp, .feels, .humidity, .wind, .cloud, .vis, .precip {
 		margin: 5px 0;
 		color: $colorHex;

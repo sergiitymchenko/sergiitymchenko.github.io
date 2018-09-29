@@ -8,7 +8,8 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	width: 10rem;
+	order: 0;
+	flex: 1 1 163px;
 	border: 1px solid #ccc;
 	border-radius: 8px;
 	box-shadow: 0 0 1px 1px #222;
