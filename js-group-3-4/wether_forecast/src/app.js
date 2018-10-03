@@ -13,19 +13,16 @@ btnSearch.addEventListener('click', handleClick);
 
 function handleView() {
 
-	const optionWeekday = {
-		weekday: 'long',
-	}
-	const optionMonth = {
-		month: 'long',
-	}
 	const date = new Date();
 	const weeks = ["неділя", "понеділок", "вівторок", "середа", "четвер", "п'ятниця", "субота", "неділя", "понеділок", "вівторок", "середа", "четвер", "п'ятниця", "субота"];
 
+	const month = ["Січень", "Лютий", "Березень", "Квітень", "Травень", "Червень", "Липень", "Серпень", "Вересень", "Жовтень", "Листопад", "Грудень"];
 
 	fetchForecast(input.value)
 	.then(data => {
-		// console.log(data);
+		console.log(data);
+		console.log(month[date.getMonth(data.forecast.forecastday[3].date)]);
+		console.log(date.getMonth(data.forecast.forecastday[5].date)+1);
 		mainContent.innerHTML = gridTpl({
 			city: data.location.name,
 			region: data.location.region,
@@ -42,7 +39,7 @@ function handleView() {
 			visCurrent: data.current.vis_km,
 			precipCurrent: data.current.precip_mm,
 
-			dayToday: date.toLocaleString('Uk-uk', optionWeekday),
+			dayToday: date.toLocaleString('Uk-uk', {weekday: 'long'}),
 
 			dayOne: weeks[date.getDay()],
 			dayTwo: weeks[date.getDay()+1],
@@ -60,7 +57,13 @@ function handleView() {
 			numberSix: data.forecast.forecastday[5].date.slice(8),
 			numberSeven: data.forecast.forecastday[6].date.slice(8),
 
-			month: date.toLocaleString('Uk-uk', optionMonth),
+			monthOne: month[date.getMonth(data.forecast.forecastday[0].date)],
+			monthTwo: month[date.getMonth(data.forecast.forecastday[1].date)],
+			monthThree: month[date.getMonth(data.forecast.forecastday[2].date)],
+			monthFour: month[date.getMonth(data.forecast.forecastday[3].date)],
+			monthFive: month[date.getMonth(data.forecast.forecastday[4].date)],
+			monthSix: month[date.getMonth(data.forecast.forecastday[5].date)],
+			monthSeven: month[date.getMonth(data.forecast.forecastday[6].date)],
 
 			imgOne: data.forecast.forecastday[0].day.condition.icon,
 			imgTwo: data.forecast.forecastday[1].day.condition.icon,

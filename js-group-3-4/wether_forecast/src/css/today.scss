@@ -44,9 +44,9 @@ $colorCyan: cyan;
 	font-size: 40px;
 	font-family: "Open Sans Condensed";
 	margin: 0;
-	padding: 10px 0;
+	padding: 10px 20px;
 	background-color: $colorCyan;
-	width: 45%;
+	min-width: 45%;
 	border-radius: 50px;
 }
 .today {
@@ -78,9 +78,14 @@ $colorCyan: cyan;
 	border-radius: 15px;
 	font-size: 20px;
 	color: $colorHex;
+	width: 300px;
+	height: 250px;
 	.today-img {
 		width: 150px;
 		height: 150px;
+	}
+	.today-text {
+		margin: 0 10px;
 	}
 }
 .today-date {

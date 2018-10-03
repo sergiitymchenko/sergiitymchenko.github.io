@@ -128,9 +128,9 @@
   font-size: 40px;
   font-family: "Open Sans Condensed";
   margin: 0;
-  padding: 10px 0;
+  padding: 10px 20px;
   background-color: cyan;
-  width: 45%;
+  min-width: 45%;
   border-radius: 50px; }
 
 .today {
@@ -161,10 +161,14 @@
   border-bottom: none;
   border-radius: 15px;
   font-size: 20px;
-  color: #222222; }
+  color: #222222;
+  width: 300px;
+  height: 250px; }
   .today-icon .today-img {
     width: 150px;
     height: 150px; }
+  .today-icon .today-text {
+    margin: 0 10px; }
 
 .today-date {
   border-top: none;
